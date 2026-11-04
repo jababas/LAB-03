@@ -50,8 +50,18 @@ export default function App() {
     <main className="app">
       <h1>Testimonios o experiencias de usuarios</h1>
       <Testimonial item={testimonios[index]} />
-      <Controls onPrev={prev} onNext={next} onRandom={random} />
-      <p className="counter" aria-live="polite">
+            <Controls
+        onPrev={() => navegar(prev)}
+        onNext={() => navegar(next)}
+        onRandom={() => navegar(random)}
+      />
+      {total > 1 && (
+        <button type="button"
+          onClick={() => setReproduciendo(actual => !actual)}>
+          {reproduciendo ? 'Pausar' : 'Reanudar'}
+        </button>
+      )}
+      <p className="counter">
         Testimonio {index + 1} de {total}
       </p>
     </main>
