@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import testimonios from './data.js';
 import Testimonial from './components/Testimonial.jsx';
 import Controls from './components/Controls.jsx';
@@ -6,6 +6,21 @@ import Controls from './components/Controls.jsx';
 export default function App() {
   const [index, setIndex] = useState(0);
   const total = testimonios.length;
+
+    const [reproduciendo, setReproduciendo] = useState(false);
+
+  useEffect(() => {
+    if (!reproduciendo || total < 2) return;
+    const intervalo = setInterval(() => {
+      setIndex(actual => (actual + 1) % total);
+    }, 5000);
+    return () => clearInterval(intervalo);
+  }, [reproduciendo, total]);
+
+  function navegar(accion) {
+    setReproduciendo(false);
+    accion();
+  }
 
   function next() {
     setIndex(actual => (actual + 1) % total);
