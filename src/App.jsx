@@ -21,6 +21,16 @@ export default function App() {
     setIndex(actual => (actual + salto) % total);
   }
 
+
+    if (total === 0) {
+    return (
+      <main className="app">
+        <h1>Experiencias de nuestros usuarios</h1>
+        <p>No hay testimonios disponibles.</p>
+      </main>
+    );
+  }
+
   return (
     <main className="app">
       <h1>Testimonios o experiencias de usuarios</h1>
