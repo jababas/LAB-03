@@ -25,3 +25,21 @@ h1 { font-size: clamp(1.5rem, 5vw, 2rem); }
 .testimonial-role, .counter { color: #465766; }
 
 blockquote { margin: 16px 0 0; line-height: 1.6; }
+
+.controls {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;
+}
+
+button {
+  font: inherit; min-height: 44px; padding: 10px 16px;
+  border: 1px solid #284e69; border-radius: 8px;
+  background: #fff; color: #17364d; cursor: pointer;
+}
+
+button:hover { background: #e4eef5; }
+
+button:focus-visible { outline: 3px solid #125ca3; outline-offset: 3px; }
+
+@media (max-width: 360px) {
+  .testimonial-card { padding: 18px; }
+}
